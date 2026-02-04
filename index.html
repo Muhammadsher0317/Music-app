@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammadsher's music app</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <div class="music">
+      <div class="container">
+        <div class="row">
+          <i id="closed" class="fa-solid fa-arrow-left"></i>
+          <div class="inlineflex">
+            <p>Playing From</p>
+            <span>my songs</span>
+          </div>
+          <i id="modalopen" class="fa-solid fa-ellipsis"></i>
+        </div>
+        <img class="mainimg" src="./imgs/Ellipse 1.png" alt="" />
+        <div class="secondrow">
+          <i class="fa-solid fa-plus"></i>
+          <div class="names">
+            <h1 class="musicnomio">Slave to the Rhythm</h1>
+            <h2 class="authorname">Michael Jackson</h2>
+          </div>
+          <p class="heart active">
+            <i id="hearts" class="fa-solid fa-heart"></i>
+          </p>
+        </div>
+        <div class="slider">
+          <div class="nuqta"></div>
+        </div>
+        <div class="times">
+          <span class="currentimes"> 00:36 </span>
+          <span class="alltime">3:25</span>
+        </div>
+        <div class="modal">
+          <div class="musicsearchinput">
+            <input
+              class="searchmusic"
+              type="text"
+              placeholder="search the musics"
+            />
+            <div class="exit">exit</div>
+          </div>
+          <div class="mainrow">
+            <div class="rowarray">
+              <span class="musicnumber">1</span>
+              <h1 class="musicnames">INSON</h1>
+              <img class="lastimg" src="./imgs/inson.jpg" alt="" />
+            </div>
+            <div class="rowarray">
+              <span class="musicnumber">2</span>
+              <h1 class="musicnames">LOSE YOURSELF</h1>
+              <img class="lastimg" src="./imgs/Loseyourself.jpg" alt="" />
+            </div>
+            <div class="rowarray">
+              <span class="musicnumber">3</span>
+              <h1 class="musicnames">BAHOR</h1>
+              <img class="lastimg" src="./imgs/Bahor.jpg" alt="" />
+            </div>
+            <div class="rowarray">
+              <span class="musicnumber">4</span>
+              <h1 class="musicnames">DOSTIM</h1>
+              <img class="lastimg" src="./imgs/Dostim.jpg" alt="" />
+            </div>
+            <div class="rowarray">
+              <span class="musicnumber">5</span>
+              <h1 class="musicnames">Ona</h1>
+              <img class="lastimg" src="./imgs/ona.jpg" alt="" />
+            </div>
+            <div class="rowarray">
+              <span class="musicnumber">6</span>
+              <h1 class="musicnames">TOR KOCHA</h1>
+              <img class="lastimg" src="./imgs/torkocha.jpg" alt="" />
+            </div>
+            <div class="rowarray">
+              <span class="musicnumber">7</span>
+              <h1 class="musicnames">BALAND</h1>
+              <img class="lastimg" src="./imgs/baland.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="musiccontrols">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+          <div class="maincontrols">
+            <i id="preview" class="fa-solid fa-backward"></i>
+            <div class="musiqa">
+              <div class="play">
+                <div class="players">
+                  <i class="fa-solid fa-circle-play"></i>
+                </div>
+                <div class="pauses">
+                  <i class="fa-regular fa-circle-pause"></i>
+                </div>
+              </div>
+            </div>
+            <i id="forward" class="fa-solid fa-forward"></i>
+          </div>
+          <i class="fa-solid fa-shuffle"></i>
+        </div>
+      </div>
+      <audio class="realmusic" src="./music/Dostim.mp3"></audio>
+    </div>
+  </body>
+  <script src="./js/main.js"></script>
+</html>
