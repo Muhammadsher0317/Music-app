@@ -42,7 +42,7 @@ const preview = document.querySelector("#preview");
 const modal = document.querySelector(".modal");
 const modalopen = document.querySelector("#modalopen");
 const exit = document.querySelector(".exit");
-const heart = document.querySelector("#heart");
+const heart = document.querySelector(".heart");
 const players = document.querySelector(".players");
 const pauses = document.querySelector(".pauses");
 const musicnomio = document.querySelector(".musicnomio");
@@ -58,7 +58,7 @@ const writedata = (index) => {
   realmusic.src = `./music/${musicdata[index].id}.mp3`;
   musicnomio.textContent=`${musicdata[index].id}`
   authorname.textContent=`${musicdata[index].muallif}`
-}
+} 
 writedata(newnumber);
 forward.addEventListener("click", () => {
 nextmusic()
@@ -169,3 +169,6 @@ window.addEventListener("keydown",(e)=>{
 }
 })
 
+heart.addEventListener("click",()=>{
+  heart.classList.toggle("active")
+})
