@@ -52,6 +52,10 @@ const alltime=document.querySelector(".alltime")
 const authorname=document.querySelector(".authorname")
 const slider=document.querySelector(".slider")
 const nuqta=document.querySelector(".nuqta")
+const rangeinput=document.querySelector(".rangeinput")
+const mainrow=document.querySelector(".mainrow")
+const shuffelelement=document.querySelector("#shuffelelement")
+const rotatemusic=document.querySelector("#rotatemusic")
 let newnumber = 0;
 const writedata = (index) => {
   mainimg.src = `./imgs/${musicdata[index].id}.jpg`;
@@ -62,7 +66,7 @@ const writedata = (index) => {
 writedata(newnumber);
 forward.addEventListener("click", () => {
 nextmusic()
-realmusic.play();
+
 });
 const nextmusic=()=>{
 if (musicdata.length - 1 > newnumber) {
@@ -115,8 +119,7 @@ let currenttime=e.target.currentTime
 let result=currenttime*100/duration
 
 nuqta.style=`width:${result}%`
-// console.log(Math.floor(duration / 60));
-// console.log(Math.floor(duration % 60));
+
 alltime.textContent=timeformattor(duration)
 currentimes.textContent=timeformattor(currenttime)
 })
@@ -137,32 +140,36 @@ slider.addEventListener("click",(e)=>{
   musiqa.classList.add("active")
   realmusic.play()
 })
-realmusic.addEventListener("ended",()=>{
-  nextmusic();
-})
+realmusic.addEventListener("ended", () => {
+    if(rotatemusic.classList.contains("active")) {
+        realmusic.currentTime = 0;
+        realmusic.play();
+    } else {
+        nextmusic();
+    }
+});
+
 const pausedMusic=()=>{
 if(musiqa.classList.contains("active")){
   musiqa.classList.remove("active")
   realmusic.pause()
 }else{
   musiqa.classList.add("active")
-
   realmusic.play()
 }
 }
-
-window.addEventListener("keydown",(e)=>{
-  console.log(e.key);
-  
+window.addEventListener("keydown",(e)=>{  
  if(e.key=="ArrowRight"){
   nextmusic()
  }else if(e.key=="ArrowLeft"){
   previesmusic()}
   else if(e.key==="ArrowUp"){
-    realmusic.volume =Math.min(realmusic.volume+0.1,1)
+    realmusic.volume =rangeinput.value/100+0.1
+    rangeinput.value=realmusic.volume*100
   }
   else if(e.key==="ArrowDown"){
-    realmusic.volume=Math.max(realmusic.volume-0.1,0)
+   realmusic.volume =rangeinput.value/100-0.1
+    rangeinput.value=realmusic.volume*100
   }else if(e.code === "Space"){
   e.preventDefault(); 
   pausedMusic();
@@ -171,4 +178,42 @@ window.addEventListener("keydown",(e)=>{
 
 heart.addEventListener("click",()=>{
   heart.classList.toggle("active")
+})
+rangeinput.addEventListener("input",()=>{
+  realmusic.volume=rangeinput.value/100
+})
+const writemusics=(newdata)=>{
+   mainrow.innerHTML=""
+newdata.forEach((items,index)=>{
+  mainrow.innerHTML+=`
+  <div class="rowarray" onclick="playmusics(${index})">
+              <span class="musicnumber">${index+1}</span>
+              <h1 class="musicnames">${items.musicname}</h1>
+              <img class="lastimg" src="./imgs/${items.musicname}.jpg" alt="" />
+            </div>
+  `
+})
+}
+writemusics(musicdata)
+const playmusics=(index)=>{
+  modal.classList.remove("active")
+newnumber=index
+writedata(newnumber)
+musiqa.classList.add("active")
+realmusic.play()
+mainimg.classList.add("active")
+}
+shuffelelement.addEventListener("click",()=>{
+let newindex;
+do {
+    newindex=Math.floor(Math.random()*musicdata.length)
+} while (newindex===newnumber);
+newnumber=newindex
+writedata(newnumber)
+realmusic.play()
+mainimg.classList.add("active")
+musiqa.classList.add("active")
+})
+rotatemusic.addEventListener("click",()=>{
+  rotatemusic.classList.toggle("active")
 })

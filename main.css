@@ -1,272 +1,295 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-.container {
-  max-width: 350px;
-  margin: 0 auto;
-}
-.music .container {
-  background: transparent;
-  padding: 10px 20px;
-  border: 2px solid darkslateblue;
-  box-shadow: -5px 5px 10px darkblue;
-  height: 700px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-body {
-  background-image: url("./imgs/backrounend.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 730px;
-  overflow: hidden;
-}
-.heart.active {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .music .container {
+    background: transparent;
+    padding: 10px 20px;
+    border: 2px solid darkslateblue;
+    box-shadow: -5px 5px 10px darkblue;
+    height: 700px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+  body {
+    background-image: url("./imgs/backrounend.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+    /* overflow: hidden; */
+  }
+  .heart.active {
+    display: flex;
+    flex-direction: column;
+    color: red;
+    cursor: pointer;
+  }
+  #closed {
+    color: white;
+  }
+  #modalopen {
+    width: 50px;
+    height: 50px;
+    color: white;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  color: red;
-  cursor: pointer;
-}
-
-#closed {
-  color: white;
-  font-size: 30px;
-  font-weight: 600;
-}
-#modalopen {
-  width: 30px;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.modal {
+  align-items: center;
+  justify-content: center;
+  }
+.modal{
   width: 300px;
   height: 400px;
   border-radius: 20px;
-  background: transparent;
+  background: rgba(0,0,0,0.6);
   color: white;
-  opacity: 0;
   position: fixed;
-  margin-top: -570px;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
 }
-.modal.active {
+.modal.active{
   opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
 }
-.musicsearchinput {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-}
-.searchmusic {
-  width: 210px;
-  padding-left: 10px;
-  border-radius: 8px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.exit {
-  background-color: blue;
-  width: 40px;
-  height: 30px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.musicnames {
-  font-size: 18px;
-  font-weight: 400;
-}
-.mainrow {
-  width: 350px;
-  height: 330px;
-  padding: 0px 20px;
-  margin: 0 auto;
-  overflow-y: scroll;
-  scrollbar-width: none;
-}
-.musicnumber {
-  font-size: 24px;
-  font-weight: 500;
-}
-.rowarray {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: transparent;
-  margin-top: 10px;
-  border: 1px solid black;
-  box-shadow: -4px 4px 5px black;
-  border-radius: 20px;
-  padding: 10px 10px;
-  width: 270px;
-  height: 80px;
-
-  font-size: 14px;
-  font-weight: 300;
-}
-.lastimg {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: capitalize;
-  color: white;
-  margin: 30px auto;
-  margin-bottom: 30px;
-}
-
-.inlineflex {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  font-size: 17px;
-  font-weight: 400;
-  color: black;
-}
-.mainimg {
-  margin: 0 auto;
-  margin-top: 20px;
-  object-fit: cover;
-  overflow: hidden;
-  height: 300px;
-  border-radius: 50%;
-  width: 300px;
-  animation: spin 20s linear infinite;
-  margin-bottom: 30px;
-  animation-play-state: paused;
-}
-.mainimg.active{
-  animation-play-state: running;
-}
-.players {
-  font-size: 60px;
-  font-weight: 900;
-  display: flex;
-}
-
-.musiqa.active .players {
-  display: none;
-}
-
-.musiqa.active .pauses {
-  display: inline-block;
-}
-
-.pauses {
-  font-size: 60px;
-  font-weight: 900;
-  display: none;
-}
-
-#forward {
-  font-size: 30px;
-  font-weight: 600;
-}
-#preview {
-  font-size: 30px;
-  font-weight: 600;
-}
-.secondrow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  color: aliceblue;
-}
-.secondrow {
-  font-size: 14px;
-  font-weight: 300;
-}
-.names {
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  font-weight: 350;
-  gap: 3px;
-  align-items: center;
-}
-.slider{
- max-width: 100%;
-  height: 12px;
-  padding: 3px;
-  display: flex;
-  align-items: center;
-   overflow: visible;
-  margin: 20px auto;
-  background: rgba(0, 0, 0, 0.407);
-  border-radius: 5px;
-}
-.nuqta{
-width: 10px;
-height: 6px;
-border-radius: 10px;
-background-color: red;
-position: relative;
-}
-.nuqta::after{
-content: "";
-width: 8px;
-margin-top: 0.39px;
-height: 8px;
-position: absolute;
-background: red;
-right: -5px;
-top: 50%;
-border-radius: 50%;
-transform: translateY(-55%);
-}
-.times {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 20px;
-  font-size: 16px;
-  font-weight: 300;
-  color: white;
-  margin-bottom: 20px;
-}
-.musiccontrols {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  font-size: 23px;
-  font-weight: 400;
-  padding: 20px 20px;
-  margin-bottom: 30px;
-}
-.maincontrols {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+  .musicsearchinput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .searchmusic {
+    width: 210px;
+    padding-left: 10px;
+    border-radius: 8px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-}
+  .exit {
+    background-color: blue;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .musicnames {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .mainrow {
+    width: 350px;
+    height: 330px;
+    padding: 0px 20px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+  .musicnumber {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .rowarray {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    margin-top: 10px;
+    border: 1px solid black;
+    box-shadow: -4px 4px 5px black;
+    border-radius: 20px;
+    padding: 10px 10px;
+    width: 270px;
+    height: 80px;
 
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .lastimg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: white;
+    margin: 10px auto;
+    /* margin-bottom: 30px; */
+  }
 
+  .inlineflex {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+  }
+  .mainimg {
+    margin: 0 auto;
+    margin-top: 20px;
+    object-fit: cover;
+    overflow: hidden;
+    height: 300px;
+    border-radius: 50%;
+    width: 300px;
+    animation: spin 60s linear infinite;
+    margin-bottom: 30px;
+    animation-play-state: paused;
+  }
+  .mainimg.active{
+    animation-play-state: running;
+  }
+  .players {
+    font-size: 60px;
+    font-weight: 900;
+    display: flex;
+   
+  }
+  /* .musiqa{
+    margin-bottom: 40px;
+  } */
+  .musiqa.active .players {
+    display: none;
+    font-size: 60px;
+    font-weight: 900;
+  }
+  .musiqa.active .pauses {
+    display: inline-block;
+    font-size: 60px;
+    font-weight: 900;
+  }
+  .players i{
+        font-size: 60px;
+    font-weight: 900;
+  } 
+  .pauses {
+    font-size: 60px;
+    font-weight: 900;
+    display: none;
+    
+  }
+  .pauses i{
+       font-size: 60px;
+    font-weight: 900;
+  }
+  #forward {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  #preview {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .secondrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    color: aliceblue;
+  }
+  .secondrow {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .names {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 350;
+    gap: 3px;
+    align-items: center;
+  }
+  #rotatemusic.active{
+    color: gold;
+  }
+  .slider{
+  max-width: 100%;
+    height: 12px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.407);
+    border-radius: 5px;
+  }
+  .nuqta{
+  width: 10px;
+  height: 6px;
+  border-radius: 10px;
+  background-color: red;
+  position: relative;
+  }
+  .nuqta::after{
+  content: "";
+  width: 8px;
+  margin-top: 0.39px;
+  height: 8px;
+  position: absolute;
+  background: red;
+  right: -5px;
+  top: 50%;
+  border-radius: 50%;
+  transform: translateY(-55%);
+  }
+  .times {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 0px;
+  }
+  .musiccontrols {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 23px;
+    font-weight: 400;
+    padding: 20px 20px;
+    margin-bottom: 0px;
+  }
+  .maincontrols {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .rangeinput{
+    width: 100%;
+    border: none;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

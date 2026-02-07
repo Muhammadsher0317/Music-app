@@ -22,7 +22,9 @@
             <p>Playing From</p>
             <span>my songs</span>
           </div>
-          <i id="modalopen" class="fa-solid fa-ellipsis"></i>
+         <div class="modelopenings">
+           <i id="modalopen" class="fa-solid fa-bars"></i>
+         </div>
         </div>
         <img class="mainimg" src="./imgs/Ellipse 1.png" alt="" />
         <div class="secondrow">
@@ -52,7 +54,7 @@
             <div class="exit">exit</div>
           </div>
           <div class="mainrow">
-            <div class="rowarray">
+            <!-- <div class="rowarray">
               <span class="musicnumber">1</span>
               <h1 class="musicnames">INSON</h1>
               <img class="lastimg" src="./imgs/inson.jpg" alt="" />
@@ -86,11 +88,11 @@
               <span class="musicnumber">7</span>
               <h1 class="musicnames">BALAND</h1>
               <img class="lastimg" src="./imgs/baland.jpg" alt="" />
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="musiccontrols">
-          <i class="fa-solid fa-arrow-rotate-left"></i>
+          <i id="rotatemusic" class="fa-solid fa-arrow-rotate-left"></i>
           <div class="maincontrols">
             <i id="preview" class="fa-solid fa-backward"></i>
             <div class="musiqa">
@@ -105,8 +107,9 @@
             </div>
             <i id="forward" class="fa-solid fa-forward"></i>
           </div>
-          <i class="fa-solid fa-shuffle"></i>
+          <i id="shuffelelement" class="fa-solid fa-shuffle"></i>
         </div>
+        <input class="rangeinput" max="100" min="0" type="range" >
       </div>
       <audio class="realmusic" src="./music/Dostim.mp3"></audio>
     </div>
